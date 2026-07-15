@@ -1,165 +1,24 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aditya Rungta</title>
-  <meta name="description" content="Aditya Rungta — computer science student working on backend systems, mobile apps and applied machine learning.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header>
-    <h1>Aditya Rungta</h1>
-    <p class="subtitle">Backend, mobile &amp; applied ML &middot; B.Tech CS, class of 2026</p>
-    <nav aria-label="Contact links">
-      <a href="https://github.com/AdityaRungta2048">GitHub</a>
-      <a href="https://www.linkedin.com/in/aditya-rungta2048">LinkedIn</a>
-      <a href="mailto:adityarungta2048@gmail.com">Email</a>
-      <a href="resume.pdf">R&eacute;sum&eacute;</a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="about">
-      <p>
-        I'm a computer science student at Amity University (B.Tech, class of 2026).
-        I like working close to the backend &mdash; game logic, APIs, data pipelines &mdash;
-        and I've shipped mobile apps and ML-powered tools along the way.
-      </p>
-      <p>
-        Last summer I interned at Jabsz Gaming Studios, building a real-time multiplayer
-        dice game in React Native. For my final-year project I built a context-aware
-        chatbot for customer support. Day to day I write Python, Java and Kotlin;
-        lately also FastAPI and Hugging Face transformers.
-      </p>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Jabsz Gaming Studios &mdash; Web Development Intern</h3>
-          <span class="when">May &ndash; Jul 2025</span>
-        </div>
-        <p>
-          Worked on <em>Dice Duel</em>, a turn-based, probability-driven mobile game.
-          Built the core game logic &mdash; betting mechanics, dice-roll prediction and
-          the 2&times;/4&times; reward multipliers &mdash; plus the real-time state
-          handling for local and AI multiplayer. Wired up Firebase Firestore for
-          persistent sessions, so a dropped connection doesn't lose the game.
-        </p>
-        <p class="tech">React Native &middot; Expo &middot; Firebase Firestore</p>
-      </article>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Context-aware customer support chatbot</h3>
-          <span class="when">Dec 2025 &ndash; Apr 2026</span>
-        </div>
-        <p>
-          A multi-turn support chatbot that tracks dialogue state, so follow-up
-          questions land in context instead of starting the conversation over.
-          Fine-tuned Hugging Face transformer models for intent recognition and
-          entity extraction, served through a FastAPI backend with a Chainlit
-          front end. Built as my final-year project.
-        </p>
-        <p class="tech">Python &middot; Transformers &middot; FastAPI &middot; Chainlit</p>
-      </article>
-
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Facial emotion detection</h3>
-          <span class="when">Dec 2024 &ndash; Jan 2025</span>
-        </div>
-        <p>
-          Real-time emotion recognition from a webcam feed: OpenCV handles face
-          detection and preprocessing, a CNN does the classification. Most of the
-          work went into keeping inference latency low enough for smooth live video.
-        </p>
-        <p class="tech">Python &middot; OpenCV &middot; CNN</p>
-      </article>
-
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Healthcare management system</h3>
-          <span class="when">Sep &ndash; Oct 2024</span>
-        </div>
-        <p>
-          Patient registration, appointment scheduling and doctor lookup on top of
-          MySQL, with strict data validation throughout. Designed to be boring,
-          predictable and easy to extend &mdash; the qualities you actually want
-          in healthcare software.
-        </p>
-        <p class="tech">Python &middot; MySQL</p>
-      </article>
-
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Food ordering app</h3>
-          <span class="when">Jun &ndash; Aug 2024</span>
-        </div>
-        <p>
-          An Android app for browsing, ordering and paying (cash on delivery), with
-          user accounts and support for multiple simultaneous orders. My first
-          end-to-end mobile project.
-        </p>
-        <p class="tech">Kotlin &middot; XML &middot; SQL</p>
-      </article>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-
-      <article class="entry">
-        <div class="entry-head">
-          <h3>B.Tech in Computer Science, Amity University</h3>
-          <span class="when">2022 &ndash; 2026</span>
-        </div>
-        <p class="tech">CGPA 8.16</p>
-      </article>
-    </section>
-
-    <section id="elsewhere">
-      <h2>Elsewhere</h2>
-      <ul>
-        <li>Contributor, GirlScript Summer of Code (2024)</li>
-        <li>Top 5% &mdash; Python for Data Science, IIT Madras (2023)</li>
-        <li>Volunteer intern, Kind Beings NGO (Jan &ndash; Mar 2025)</li>
-      </ul>
-    </section>
-
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Microsoft Azure AI Fundamentals, AI-900 (2025)</li>
-        <li>Microsoft Azure Data Fundamentals, DP-900 (2025)</li>
-        <li>Oracle Cloud Infrastructure Generative AI Professional (2024)</li>
-        <li>Python for Data Science, IIT Madras (2023)</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        I'm open to backend and full-stack roles. The fastest way to reach me is
-        email: <a href="mailto:adityarungta2048@gmail.com">adityarungta2048@gmail.com</a>.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>
-      &copy; 2026 Aditya Rungta &middot; No frameworks, no trackers &mdash; just
-      <a href="https://github.com/AdityaRungta2048/AdityaRungta_PortfolioTest">HTML and CSS</a>.
-    </p>
-  </footer>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aditya Rungta · Software Engineer</title>
+    <meta
+      name="description"
+      content="Aditya Rungta — software engineer working across backend systems, mobile apps and applied machine learning."
+    />
+    <meta name="theme-color" content="#0b0e14" />
+    <meta property="og:title" content="Aditya Rungta · Software Engineer" />
+    <meta
+      property="og:description"
+      content="Backend systems, mobile apps and applied machine learning."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body style="background-color: #0b0e14">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

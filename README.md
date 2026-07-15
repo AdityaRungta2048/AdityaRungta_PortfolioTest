@@ -1,26 +1,36 @@
 # Portfolio
 
-Personal site for Aditya Rungta. Plain HTML and CSS — no build step, no
-JavaScript, no dependencies.
+Personal site for Aditya Rungta — a single-page portfolio with an animated
+hero, scroll-spy navigation, cursor spotlight, and motion-on-scroll sections.
 
-## Files
+## Stack
 
-- `index.html` — the whole site
-- `style.css` — styles (light/dark via `prefers-color-scheme`)
-- `resume.pdf` — downloadable résumé
-- `favicon.svg` — tab icon
+- [React 19](https://react.dev) + [TypeScript](https://www.typescriptlang.org)
+- [Vite](https://vite.dev) for dev server and bundling
+- [Tailwind CSS v4](https://tailwindcss.com) for styling
+- [Framer Motion](https://motion.dev) for animations
+- [lucide-react](https://lucide.dev) icons, self-hosted fonts via Fontsource
 
-## Running locally
-
-Open `index.html` directly in a browser, or serve the folder:
+## Development
 
 ```sh
-python -m http.server
+npm install
+npm run dev        # dev server with HMR
+npm run typecheck  # TypeScript checks
+npm run build      # production build into dist/
+npm run preview    # serve the production build locally
 ```
 
-Then visit <http://localhost:8000>.
+All page content (experience, projects, certifications) lives in
+[`src/data.ts`](src/data.ts) — edit that file to update the site.
 
-## Deploying
+## Deployment
 
-Everything is static at the repo root, so GitHub Pages works out of the box:
-**Settings → Pages → Deploy from a branch**, pick `main` and `/ (root)`.
+Every push to `main` builds and deploys the site to GitHub Pages via
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+One-time setup: **Settings → Pages → Source → GitHub Actions**.
+
+The Vite `base` is set to `/AdityaRungta_PortfolioTest/` in
+[`vite.config.ts`](vite.config.ts); change it if the repo is renamed or moved
+to a custom domain.
