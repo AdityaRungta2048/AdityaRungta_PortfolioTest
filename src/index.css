@@ -121,3 +121,59 @@ button:focus-visible {
   background-image: radial-gradient(var(--color-line) 1px, transparent 1px);
   background-size: 18px 18px;
 }
+
+/* Preloader progress bar */
+@keyframes loadbar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.loadbar {
+  animation: loadbar 1.2s ease-in-out forwards;
+}
+
+/* Infinite tech marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* Magnetic buttons ease back into place */
+.magnetic {
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+
+  .loadbar {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

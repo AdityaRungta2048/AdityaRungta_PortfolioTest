@@ -1,9 +1,51 @@
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type AnchorHTMLAttributes,
+  type ReactNode,
+} from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { heroRoles } from "../data";
 
 const resumeHref = `${import.meta.env.BASE_URL}resume.pdf`;
+
+// Buttons gently gravitate toward the pointer while hovered.
+function MagneticLink({
+  children,
+  ...props
+}: AnchorHTMLAttributes<HTMLAnchorElement> & { children: ReactNode }) {
+  const ref = useRef<HTMLAnchorElement | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(pointer: coarse)").matches) return;
+
+    const move = (e: PointerEvent) => {
+      const rect = el.getBoundingClientRect();
+      const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.25;
+      const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.25;
+      el.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
+    };
+    const leave = () => {
+      el.style.transform = "";
+    };
+
+    el.addEventListener("pointermove", move);
+    el.addEventListener("pointerleave", leave);
+    return () => {
+      el.removeEventListener("pointermove", move);
+      el.removeEventListener("pointerleave", leave);
+    };
+  }, []);
+
+  return (
+    <a ref={ref} {...props} className={`magnetic ${props.className ?? ""}`}>
+      {children}
+    </a>
+  );
+}
 
 const container: Variants = {
   hidden: {},
@@ -104,7 +146,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
-          <a
+          <MagneticLink
             href="#projects"
             className="group inline-flex items-center gap-2 rounded border border-mint px-6 py-3 font-mono text-sm text-mint transition-colors hover:bg-mint/10"
           >
@@ -113,15 +155,15 @@ export default function Hero() {
               size={16}
               className="transition-transform group-hover:translate-x-1"
             />
-          </a>
-          <a
+          </MagneticLink>
+          <MagneticLink
             href={resumeHref}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center rounded px-6 py-3 font-mono text-sm text-fog transition-colors hover:text-mint"
           >
             View résumé
-          </a>
+          </MagneticLink>
         </motion.div>
       </motion.div>
 

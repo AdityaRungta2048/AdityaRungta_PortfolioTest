@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Section from "./Section";
+import GitHubActivity from "./GitHubActivity";
 import { featuredProjects, moreProjects, type Accent, type Project } from "../data";
 
 const accentStyles: Record<
@@ -154,6 +155,8 @@ export default function Projects() {
           );
         })}
       </div>
+
+      <GitHubActivity />
     </Section>
   );
 }
