@@ -2,8 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-// base must match the repo name for GitHub Pages project sites
+// Relative base so the same build works from any mount point:
+// the domain root on Vercel, or /AdityaRungta_PortfolioTest/ on GitHub Pages.
 export default defineConfig({
-  base: "/AdityaRungta_PortfolioTest/",
+  base: "./",
   plugins: [react(), tailwindcss()],
 });
