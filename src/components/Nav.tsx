@@ -1,8 +1,37 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { navLinks } from "../data";
 
 const resumeHref = `${import.meta.env.BASE_URL}resume.pdf`;
+
+function ThemeToggle() {
+  const [theme, setTheme] = useState(
+    () => document.documentElement.dataset.theme ?? "dark",
+  );
+
+  const toggle = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    document.documentElement.style.backgroundColor =
+      next === "light" ? "#f5f6f8" : "#0b0e14";
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      /* private browsing */
+    }
+    setTheme(next);
+  };
+
+  return (
+    <button
+      onClick={toggle}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+      className="rounded-full border border-line p-2 text-fog transition-colors hover:border-mint/50 hover:text-mint"
+    >
+      {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+    </button>
+  );
+}
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -62,6 +91,9 @@ export default function Nav() {
             </li>
           ))}
           <li>
+            <ThemeToggle />
+          </li>
+          <li>
             <a
               href={resumeHref}
               target="_blank"
@@ -73,14 +105,17 @@ export default function Nav() {
           </li>
         </ul>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="text-bright md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          {open ? <X /> : <Menu />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen(!open)}
+            className="text-bright"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </nav>
 
       {open && (

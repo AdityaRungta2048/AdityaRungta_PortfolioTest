@@ -16,8 +16,19 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      (function () {
+        var theme = "dark";
+        try {
+          theme = localStorage.getItem("theme") || "dark";
+        } catch (e) {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.backgroundColor =
+          theme === "light" ? "#f5f6f8" : "#0b0e14";
+      })();
+    </script>
   </head>
-  <body style="background-color: #0b0e14">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

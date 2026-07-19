@@ -1,7 +1,9 @@
 # Portfolio
 
-Personal site for Aditya Rungta — a single-page portfolio with an animated
-hero, scroll-spy navigation, cursor spotlight, and motion-on-scroll sections.
+Personal site for Aditya Rungta — a single-page portfolio with a typewriter
+hero, light/dark theme toggle, animated stat counters, an experience timeline,
+tilt-on-hover project cards, scroll-spy navigation, a cursor spotlight, and
+motion-on-scroll sections.
 
 ## Stack
 
@@ -9,7 +11,7 @@ hero, scroll-spy navigation, cursor spotlight, and motion-on-scroll sections.
 - [Vite](https://vite.dev) for dev server and bundling
 - [Tailwind CSS v4](https://tailwindcss.com) for styling
 - [Framer Motion](https://motion.dev) for animations
-- [lucide-react](https://lucide.dev) icons, self-hosted fonts via Fontsource
+- [lucide-react](https://lucide.dev) icons, [simple-icons](https://simpleicons.org) tech logos, self-hosted fonts via Fontsource
 
 ## Development
 

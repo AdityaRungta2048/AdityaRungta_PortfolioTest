@@ -1,5 +1,7 @@
-import { motion, type Variants } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { heroRoles } from "../data";
 
 const resumeHref = `${import.meta.env.BASE_URL}resume.pdf`;
 
@@ -13,12 +15,44 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
 };
 
+function useTypewriter(phrases: string[]) {
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = phrases[index % phrases.length];
+    let timeout: number | undefined;
+
+    if (!deleting && text === current) {
+      timeout = window.setTimeout(() => setDeleting(true), 1700);
+    } else if (deleting && text === "") {
+      setDeleting(false);
+      setIndex((i) => (i + 1) % phrases.length);
+    } else {
+      timeout = window.setTimeout(
+        () => setText(current.slice(0, text.length + (deleting ? -1 : 1))),
+        deleting ? 35 : 70,
+      );
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, deleting, index, phrases]);
+
+  return text;
+}
+
 export default function Hero() {
+  const reducedMotion = useReducedMotion();
+  const typed = useTypewriter(heroRoles);
+  const roleText = reducedMotion ? heroRoles[0] : typed;
+
   return (
     <section className="relative flex min-h-svh flex-col justify-center pb-16 pt-24">
+      <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[480px] w-[720px] max-w-full -translate-x-1/2 rounded-full bg-mint/[0.05] blur-3xl"
+        className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[480px] w-[720px] max-w-full -translate-x-1/2 rounded-full bg-mint/[0.06] blur-3xl"
       />
 
       <motion.div variants={container} initial="hidden" animate="show">
@@ -35,9 +69,17 @@ export default function Hero() {
 
         <motion.h2
           variants={item}
-          className="mt-2 font-display text-4xl font-bold tracking-tight text-fog/80 sm:text-5xl lg:text-6xl"
+          className="mt-3 font-display text-3xl font-bold tracking-tight text-fog sm:text-4xl lg:text-5xl"
         >
-          I build the parts you don't see.
+          I build{" "}
+          <span className="text-mint">
+            {roleText}
+            {!reducedMotion && (
+              <span aria-hidden className="caret font-normal">
+                |
+              </span>
+            )}
+          </span>
         </motion.h2>
 
         <motion.p variants={item} className="mt-6 max-w-xl leading-relaxed">
@@ -82,6 +124,17 @@ export default function Hero() {
           </a>
         </motion.div>
       </motion.div>
+
+      <motion.a
+        href="#about"
+        aria-label="Scroll to about section"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-fog transition-colors hover:text-mint"
+      >
+        <ChevronDown size={22} className="animate-bounce" />
+      </motion.a>
     </section>
   );
 }

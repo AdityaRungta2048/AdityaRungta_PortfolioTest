@@ -16,7 +16,7 @@ export default function Spotlight() {
       aria-hidden
       className="pointer-events-none fixed inset-0 z-0 hidden lg:block"
       style={{
-        background: `radial-gradient(560px at ${pos.x}px ${pos.y}px, rgba(45, 212, 191, 0.055), transparent 80%)`,
+        background: `radial-gradient(560px at ${pos.x}px ${pos.y}px, var(--spotlight-glow), transparent 80%)`,
       }}
     />
   );
