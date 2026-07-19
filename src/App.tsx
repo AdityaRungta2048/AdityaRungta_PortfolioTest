@@ -1,9 +1,12 @@
 import { MotionConfig } from "framer-motion";
+import Preloader from "./components/Preloader";
+import Cursor from "./components/Cursor";
 import Nav from "./components/Nav";
 import ScrollProgress from "./components/ScrollProgress";
 import Spotlight from "./components/Spotlight";
 import Sidebars from "./components/Sidebars";
 import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
 import Stats from "./components/Stats";
 import About from "./components/About";
 import Experience from "./components/Experience";
@@ -17,12 +20,15 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <div id="top">
+        <Preloader />
+        <Cursor />
         <ScrollProgress />
         <Spotlight />
         <Nav />
         <Sidebars />
         <main className="mx-auto max-w-5xl px-6 sm:px-10">
           <Hero />
+          <Marquee />
           <Stats />
           <About />
           <Experience />
