@@ -1,12 +1,12 @@
 import { Award, GraduationCap } from "lucide-react";
 import Section from "./Section";
-import { certifications, education, involvement } from "../data";
+import { certifications, education } from "../data";
 
 export default function Background() {
   return (
     <Section id="background" index="04" title="Background">
       <div className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-lg border border-line bg-panel/60 p-6 sm:p-7">
+        <div className="rounded-xl border border-line bg-panel/60 p-6 sm:p-7">
           <div className="flex items-center gap-3">
             <GraduationCap size={22} className="text-mint" />
             <h3 className="font-display text-lg font-semibold text-bright">
@@ -20,30 +20,21 @@ export default function Background() {
               {education.period} · {education.note}
             </p>
           </div>
-
-          <h4 className="mt-8 font-display text-sm font-semibold uppercase tracking-wider text-fog">
-            Open source &amp; volunteering
-          </h4>
-          <ul className="mt-3 space-y-2">
-            {involvement.map((line) => (
-              <li key={line} className="flex gap-3 text-sm leading-relaxed">
-                <span aria-hidden className="text-mint">
-                  ▹
-                </span>
-                {line}
-              </li>
-            ))}
-          </ul>
+          <p className="mt-6 border-t border-line pt-5 text-sm leading-relaxed">
+            Ranked in the top 5% of IIT Madras' Python for Data Science course,
+            and an active contributor to open source through GirlScript Summer
+            of Code.
+          </p>
         </div>
 
-        <div className="rounded-lg border border-line bg-panel/60 p-6 sm:p-7">
+        <div className="rounded-xl border border-line bg-panel/60 p-6 sm:p-7">
           <div className="flex items-center gap-3">
             <Award size={22} className="text-mint" />
             <h3 className="font-display text-lg font-semibold text-bright">
               Certifications
             </h3>
           </div>
-          <ul className="mt-5 space-y-4">
+          <ul className="mt-5 space-y-3.5">
             {certifications.map((cert) => (
               <li
                 key={cert.name}

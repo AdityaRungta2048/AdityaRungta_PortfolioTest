@@ -1,7 +1,21 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Check, Copy } from "lucide-react";
 import { email } from "../data";
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard unavailable */
+    }
+  };
+
   return (
     <section id="contact" className="scroll-mt-28 py-24 sm:py-32">
       <motion.div
@@ -20,12 +34,28 @@ export default function Contact() {
           full-stack opportunities. Whether you've got a role, a question, or
           just want to say hi — my inbox is open, and I actually reply.
         </p>
-        <a
-          href={`mailto:${email}`}
-          className="mt-10 inline-block rounded border border-mint px-8 py-4 font-mono text-sm text-mint transition-colors hover:bg-mint/10"
-        >
-          Say hello
-        </a>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href={`mailto:${email}`}
+            className="inline-block rounded border border-mint px-8 py-4 font-mono text-sm text-mint transition-colors hover:bg-mint/10"
+          >
+            Say hello
+          </a>
+          <button
+            onClick={copyEmail}
+            className="inline-flex items-center gap-2 rounded px-6 py-4 font-mono text-sm text-fog transition-colors hover:text-mint"
+          >
+            {copied ? (
+              <>
+                <Check size={16} className="text-mint" /> Copied!
+              </>
+            ) : (
+              <>
+                <Copy size={16} /> Copy email
+              </>
+            )}
+          </button>
+        </div>
       </motion.div>
     </section>
   );

@@ -12,6 +12,24 @@
   --color-mint: #2dd4bf;
 }
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  color-scheme: dark;
+  --spotlight-glow: rgba(45, 212, 191, 0.055);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --color-ink: #f5f6f8;
+  --color-panel: #ffffff;
+  --color-line: #e2e6ed;
+  --color-fog: #47536b;
+  --color-bright: #0e1526;
+  --color-mint: #0c8f80;
+  --spotlight-glow: rgba(12, 143, 128, 0.07);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -24,6 +42,9 @@ html {
 
 body {
   @apply bg-ink font-sans text-fog antialiased;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 ::selection {
@@ -49,5 +70,54 @@ button:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a3446;
+  background: color-mix(in oklab, var(--color-line) 70%, var(--color-fog));
+}
+
+/* Blinking caret for the hero typewriter */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: caret-blink 1s step-end infinite;
+}
+
+/* Blueprint-style grid behind the hero, faded out at the edges */
+.bg-grid {
+  background-image:
+    linear-gradient(var(--color-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(
+    ellipse 70% 55% at 50% 40%,
+    black 25%,
+    transparent 72%
+  );
+}
+
+/* Skill chips light up in their brand colour on hover */
+.skill-chip svg {
+  transition: color 0.2s ease;
+}
+
+.skill-chip:hover svg {
+  color: var(--brand);
+}
+
+/* Tilt cards need an eased transform */
+.tilt {
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+/* Dotted texture for project art headers */
+.bg-dots {
+  background-image: radial-gradient(var(--color-line) 1px, transparent 1px);
+  background-size: 18px 18px;
 }
