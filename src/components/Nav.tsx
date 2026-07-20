@@ -78,15 +78,15 @@ export default function Nav() {
         </a>
 
         <ul className="hidden items-center gap-7 md:flex">
-          {navLinks.map((link, i) => (
+          {navLinks.map((link) => (
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`font-mono text-[13px] transition-colors ${
+                className={`font-mono text-base transition-colors ${
                   active === link.id ? "text-mint" : "text-fog hover:text-mint"
                 }`}
               >
-                <span className="text-mint/70">0{i + 1}.</span> {link.label}
+                {link.label}
               </a>
             </li>
           ))}
@@ -98,7 +98,7 @@ export default function Nav() {
               href={resumeHref}
               target="_blank"
               rel="noreferrer"
-              className="rounded border border-mint px-4 py-2 font-mono text-[13px] text-mint transition-colors hover:bg-mint/10"
+              className="rounded border border-mint px-4 py-2 font-mono text-sm text-mint transition-colors hover:bg-mint/10"
             >
               Résumé
             </a>
@@ -121,14 +121,14 @@ export default function Nav() {
       {open && (
         <div className="border-t border-line bg-ink/95 px-6 py-6 backdrop-blur-md md:hidden">
           <ul className="flex flex-col gap-5">
-            {navLinks.map((link, i) => (
+            {navLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
                   onClick={() => setOpen(false)}
-                  className="font-mono text-sm text-fog hover:text-mint"
+                  className="font-mono text-base text-fog hover:text-mint"
                 >
-                  <span className="text-mint/70">0{i + 1}.</span> {link.label}
+                  {link.label}
                 </a>
               </li>
             ))}
