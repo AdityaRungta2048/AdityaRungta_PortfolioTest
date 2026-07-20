@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Section from "./Section";
 import GitHubActivity from "./GitHubActivity";
+import ProjectModal from "./ProjectModal";
 import { featuredProjects, moreProjects, type Accent, type Project } from "../data";
 
 const accentStyles: Record<
@@ -66,7 +67,13 @@ function useTilt<T extends HTMLElement>(max = 6) {
   return ref;
 }
 
-function FeaturedCard({ project }: { project: Project }) {
+function ProjectCard({
+  project,
+  onOpen,
+}: {
+  project: Project;
+  onOpen: () => void;
+}) {
   const tiltRef = useTilt<HTMLElement>();
   const accent = accentStyles[project.accent];
   const Icon = project.icon;
@@ -74,14 +81,24 @@ function FeaturedCard({ project }: { project: Project }) {
   return (
     <article
       ref={tiltRef}
-      className="tilt group flex flex-col overflow-hidden rounded-xl border border-line bg-panel/60 transition-colors hover:border-mint/40"
+      onClick={onOpen}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen();
+        }
+      }}
+      aria-label={`${project.title} - open case study`}
+      className="tilt group flex w-[85vw] max-w-[380px] shrink-0 cursor-pointer snap-start flex-col overflow-hidden rounded-xl border border-line bg-panel/60 transition-colors hover:border-mint/40 sm:w-[360px]"
     >
       <div
-        className={`relative flex h-40 items-center justify-center overflow-hidden bg-gradient-to-br to-transparent ${accent.band}`}
+        className={`relative flex h-36 items-center justify-center overflow-hidden bg-gradient-to-br to-transparent ${accent.band}`}
       >
         <div aria-hidden className="bg-dots absolute inset-0 opacity-60" />
         <Icon
-          size={56}
+          size={52}
           strokeWidth={1.4}
           className={`relative transition-transform duration-300 group-hover:scale-110 ${accent.icon}`}
         />
@@ -91,72 +108,85 @@ function FeaturedCard({ project }: { project: Project }) {
         />
       </div>
 
-      <div className="flex flex-1 flex-col p-7">
-        <span className="font-mono text-xs text-mint">{project.label}</span>
-        <h3 className="mt-2 font-display text-xl font-semibold text-bright">
+      <div className="flex flex-1 flex-col p-6">
+        {project.label && (
+          <span className="font-mono text-xs text-mint">{project.label}</span>
+        )}
+        <h3 className="mt-2 font-display text-lg font-semibold text-bright">
           {project.title}
         </h3>
-        <p className="mt-3 flex-1 leading-relaxed">{project.blurb}</p>
-        <ul className="mt-5 flex flex-wrap gap-2">
+        <p className="mt-2.5 flex-1 text-sm leading-relaxed">{project.blurb}</p>
+        <ul className="mt-4 flex flex-wrap gap-2">
           {project.tech.map((t) => (
             <li
               key={t}
-              className={`rounded-full px-3 py-1 font-mono text-xs ${accent.chip}`}
+              className={`rounded-full px-2.5 py-0.5 font-mono text-[11px] ${accent.chip}`}
             >
               {t}
             </li>
           ))}
         </ul>
+        <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs text-mint">
+          View case study
+          <ArrowUpRight
+            size={14}
+            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </span>
       </div>
     </article>
   );
 }
 
 export default function Projects() {
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const [selected, setSelected] = useState<Project | null>(null);
+  const projects: Project[] = [...featuredProjects, ...moreProjects];
+
+  const scroll = (dir: number) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: "smooth" });
+  };
+
   return (
     <Section id="projects" index="03" title="Things I've built">
-      <div className="grid gap-6 lg:grid-cols-2">
-        {featuredProjects.map((project) => (
-          <FeaturedCard key={project.title} project={project} />
+      <div className="mb-6 flex items-center justify-between gap-4">
+        <p className="font-mono text-xs text-fog">Swipe or scroll to browse →</p>
+        <div className="flex gap-2">
+          <button
+            onClick={() => scroll(-1)}
+            aria-label="Previous projects"
+            className="rounded-full border border-line p-2 text-fog transition-colors hover:border-mint/50 hover:text-mint"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={() => scroll(1)}
+            aria-label="Next projects"
+            className="rounded-full border border-line p-2 text-fog transition-colors hover:border-mint/50 hover:text-mint"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+
+      <div
+        ref={trackRef}
+        className="carousel -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-pl-6 px-6 pb-4 sm:-mx-10 sm:scroll-pl-10 sm:px-10"
+      >
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.title}
+            project={project}
+            onOpen={() => setSelected(project)}
+          />
         ))}
       </div>
 
-      <h3 className="mb-6 mt-14 font-display text-lg font-semibold text-bright">
-        Also built
-      </h3>
-      <div className="grid gap-5 md:grid-cols-3">
-        {moreProjects.map((project) => {
-          const accent = accentStyles[project.accent];
-          const Icon = project.icon;
-          return (
-            <article
-              key={project.title}
-              className="group rounded-xl border border-line bg-panel/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-mint/40"
-            >
-              <span
-                className={`inline-flex rounded-lg p-2.5 ${accent.chip.split(" ")[0]}`}
-              >
-                <Icon
-                  size={22}
-                  strokeWidth={1.6}
-                  className={`transition-transform group-hover:scale-110 ${accent.icon}`}
-                />
-              </span>
-              <h4 className="mt-4 font-display text-base font-semibold text-bright">
-                {project.title}
-              </h4>
-              <p className="mt-2 text-sm leading-relaxed">{project.blurb}</p>
-              <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] text-fog">
-                {project.tech.map((t) => (
-                  <li key={t}>{t}</li>
-                ))}
-              </ul>
-            </article>
-          );
-        })}
-      </div>
-
       <GitHubActivity />
+
+      <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </Section>
   );
 }

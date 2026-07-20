@@ -122,6 +122,29 @@ button:focus-visible {
   background-size: 18px 18px;
 }
 
+/* Horizontal project carousel: thin themed scrollbar */
+.carousel {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 6px;
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--color-line) 70%, var(--color-fog));
+}
+
 /* Preloader progress bar */
 @keyframes loadbar {
   from {

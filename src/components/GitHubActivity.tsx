@@ -28,7 +28,7 @@ export default function GitHubActivity() {
         if (Array.isArray(data?.contributions)) setDays(data.contributions);
       })
       .catch(() => {
-        /* offline or API unavailable — hide the section */
+        /* offline or API unavailable - hide the section */
       });
     return () => controller.abort();
   }, []);

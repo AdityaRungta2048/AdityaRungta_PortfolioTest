@@ -10,7 +10,7 @@ type Props = {
 
 export default function Section({ id, index, title, children }: Props) {
   return (
-    <section id={id} className="scroll-mt-28 py-16 sm:py-24">
+    <section id={id} className="scroll-mt-28 py-8 sm:py-12">
       <motion.div
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
