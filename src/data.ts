@@ -1,5 +1,6 @@
 import {
   Bot,
+  Dices,
   Globe,
   HeartPulse,
   ScanFace,
@@ -114,7 +115,7 @@ export const timeline: TimelineEntry[] = [
   },
 ];
 
-export type Accent = "teal" | "violet" | "amber" | "rose" | "sky";
+export type Accent = "teal" | "violet" | "amber" | "rose" | "sky" | "fuchsia";
 
 export type PipelineStep = { title: string; sub?: string; active?: boolean };
 
@@ -169,6 +170,39 @@ export const featuredProjects: Project[] = [
         { title: "Chainlit reply", sub: "grounded answer", active: true },
         { title: "KB retrieval", sub: "roadmap" },
         { title: "Human handoff", sub: "roadmap" },
+      ],
+    },
+  },
+  {
+    label: "Internship · Jabsz Gaming Studios · May - Jul 2025",
+    title: "Dice Duel",
+    blurb:
+      "A turn-based, probability-driven multiplayer dice game. Built the core loop - betting mechanics, dice-roll prediction and 2x/4x multiplier payouts - with real-time state across local and AI multiplayer, backed by Firebase Firestore for persistent sessions.",
+    tech: ["React Native", "Expo", "Firebase Firestore"],
+    accent: "fuchsia",
+    icon: Dices,
+    study: {
+      problem:
+        "A real-money-style betting game has to keep every player's view of the pot and turn order in sync in real time - and a dropped connection must never lose the session or corrupt the payout.",
+      solution:
+        "Built the core loop - betting, dice-roll prediction and 2x/4x multiplier payouts - with real-time state management across local and AI multiplayer, and Firebase Firestore for persistence.",
+      insight:
+        "The hard part wasn't the dice, it was consistency - keeping the shared game state correct across clients and recovering cleanly when someone drops mid-round.",
+      today:
+        "A React Native + Expo game with working betting mechanics, roll prediction, multiplier payouts, local and AI multiplayer, and Firestore-backed session continuity.",
+      future:
+        "Online human-vs-human matchmaking, a global leaderboard, and server-authoritative validation of every roll.",
+      caption:
+        "The core loop today: place a bet, predict the roll, settle payouts - with state that survives a dropped connection.",
+      pipeline: [
+        { title: "Place bet", sub: "stake", active: true },
+        { title: "Predict roll", sub: "player call", active: true },
+        { title: "Dice roll", sub: "RNG", active: true },
+        { title: "Multiplier", sub: "2x / 4x", active: true },
+        { title: "Settle payout", sub: "rewards", active: true },
+        { title: "Firestore sync", sub: "persistent", active: true },
+        { title: "Matchmaking", sub: "roadmap" },
+        { title: "Leaderboard", sub: "roadmap" },
       ],
     },
   },
