@@ -34,6 +34,11 @@ const accentStyles: Record<
     icon: "text-sky-600 dark:text-sky-300",
     chip: "bg-sky-400/10 text-sky-700 dark:text-sky-300",
   },
+  fuchsia: {
+    band: "from-fuchsia-400/25",
+    icon: "text-fuchsia-600 dark:text-fuchsia-300",
+    chip: "bg-fuchsia-400/10 text-fuchsia-700 dark:text-fuchsia-300",
+  },
 };
 
 // Perspective tilt that follows the pointer; skipped for touch devices.
