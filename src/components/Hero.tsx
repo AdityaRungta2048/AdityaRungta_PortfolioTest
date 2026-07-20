@@ -104,14 +104,14 @@ export default function Hero() {
 
         <motion.h1
           variants={item}
-          className="font-display text-5xl font-bold tracking-tight text-bright sm:text-6xl lg:text-7xl"
+          className="font-display text-6xl font-bold tracking-tight text-bright sm:text-7xl lg:text-8xl"
         >
           Aditya Rungta.
         </motion.h1>
 
         <motion.h2
           variants={item}
-          className="mt-3 font-display text-3xl font-bold tracking-tight text-fog sm:text-4xl lg:text-5xl"
+          className="mt-3 font-display text-4xl font-bold tracking-tight text-fog sm:text-5xl lg:text-6xl"
         >
           I build{" "}
           <span className="text-mint">
@@ -124,7 +124,7 @@ export default function Hero() {
           </span>
         </motion.h2>
 
-        <motion.p variants={item} className="mt-6 max-w-xl leading-relaxed">
+        <motion.p variants={item} className="mt-6 max-w-2xl text-lg leading-relaxed">
           I'm a final-year computer-science student at Amity University working
           across <span className="text-bright">backend systems</span>,{" "}
           <span className="text-bright">mobile apps</span> and{" "}
