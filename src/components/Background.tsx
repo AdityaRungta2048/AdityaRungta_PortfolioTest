@@ -5,7 +5,7 @@ import { certifications, education } from "../data";
 export default function Background() {
   return (
     <Section id="background" index="04" title="Background">
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6">
         <div className="rounded-xl border border-line bg-panel/60 p-6 sm:p-7">
           <div className="flex items-center gap-3">
             <GraduationCap size={22} className="text-mint" />
