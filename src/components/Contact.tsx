@@ -5,45 +5,18 @@ import { email, githubUrl, linkedinUrl } from "../data";
 
 const resumeHref = `${import.meta.env.BASE_URL}resume.pdf`;
 
-function Orbital() {
+function SignalPulse() {
   return (
-    <div className="relative mx-auto mb-9 h-36 w-36 sm:h-40 sm:w-40">
-      <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-mint/25 blur-2xl" />
-      <svg viewBox="0 0 200 200" className="relative h-full w-full text-mint">
-        <g fill="none" stroke="currentColor">
-          <ellipse
-            cx="100"
-            cy="100"
-            rx="86"
-            ry="30"
-            strokeOpacity="0.35"
-            transform="rotate(0 100 100)"
-          />
-          <ellipse
-            cx="100"
-            cy="100"
-            rx="86"
-            ry="30"
-            strokeOpacity="0.28"
-            transform="rotate(60 100 100)"
-          />
-          <ellipse
-            cx="100"
-            cy="100"
-            rx="86"
-            ry="30"
-            strokeOpacity="0.2"
-            transform="rotate(120 100 100)"
-          />
-        </g>
-        <g className="orbit-a">
-          <circle cx="100" cy="14" r="3.5" fill="currentColor" />
-        </g>
-        <g className="orbit-b">
-          <circle cx="186" cy="100" r="3" fill="currentColor" fillOpacity="0.8" />
-        </g>
-        <circle className="orbit-core" cx="100" cy="100" r="6" fill="currentColor" />
-      </svg>
+    <div className="relative mx-auto mb-9 flex h-32 w-32 items-center justify-center sm:h-36 sm:w-36">
+      <div className="absolute h-16 w-16 rounded-full bg-mint/25 blur-2xl" />
+      {/* expanding ripples */}
+      <span className="absolute h-14 w-14 animate-ping rounded-full border border-mint/50 [animation-duration:2.6s] motion-reduce:hidden" />
+      <span className="absolute h-14 w-14 animate-ping rounded-full border border-mint/40 [animation-delay:1.3s] [animation-duration:2.6s] motion-reduce:hidden" />
+      {/* static rings */}
+      <span className="absolute h-28 w-28 rounded-full border border-line sm:h-32 sm:w-32" />
+      <span className="absolute h-20 w-20 rounded-full border border-line/60" />
+      {/* glowing core */}
+      <span className="relative h-4 w-4 rounded-full bg-mint shadow-[0_0_18px_2px_rgba(45,212,191,0.5)]" />
     </div>
   );
 }

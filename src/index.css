@@ -122,58 +122,6 @@ button:focus-visible {
   background-size: 18px 18px;
 }
 
-/* Contact orbital graphic */
-@keyframes orbit-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes orbit-spin-reverse {
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
-@keyframes core-pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.55;
-    transform: scale(1.3);
-  }
-}
-
-.orbit-a,
-.orbit-b,
-.orbit-core {
-  transform-box: view-box;
-  transform-origin: center;
-}
-
-.orbit-a {
-  animation: orbit-spin 20s linear infinite;
-}
-
-.orbit-b {
-  animation: orbit-spin-reverse 14s linear infinite;
-}
-
-.orbit-core {
-  animation: core-pulse 3.2s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .orbit-a,
-  .orbit-b,
-  .orbit-core {
-    animation: none;
-  }
-}
-
 /* Horizontal project carousel: thin themed scrollbar */
 .carousel {
   scrollbar-width: thin;
