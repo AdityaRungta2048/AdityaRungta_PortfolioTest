@@ -53,7 +53,7 @@ export default function Contact() {
         />
 
         <div className="relative mx-auto max-w-xl">
-          <Orbital />
+          <SignalPulse />
 
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-mint">
             Contact
