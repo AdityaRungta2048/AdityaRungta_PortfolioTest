@@ -90,7 +90,7 @@ export default function Hero() {
   const roleText = reducedMotion ? heroRoles[0] : typed;
 
   return (
-    <section className="relative flex min-h-svh flex-col justify-center pb-16 pt-24">
+    <section className="relative flex min-h-[88svh] flex-col justify-center pb-10 pt-24">
       <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
       <div
         aria-hidden
