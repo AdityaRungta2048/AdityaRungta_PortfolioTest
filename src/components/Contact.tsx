@@ -32,7 +32,7 @@ export default function Contact() {
         <p className="mt-5 leading-relaxed">
           I'm finishing my degree in 2026 and looking for backend and
           full-stack opportunities. Whether you've got a role, a question, or
-          just want to say hi — my inbox is open, and I actually reply.
+          just want to say hi - my inbox is open, and I actually reply.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a

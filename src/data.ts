@@ -85,7 +85,7 @@ export const timeline: TimelineEntry[] = [
   {
     title: "Web Development Intern",
     org: "Jabsz Gaming Studios",
-    period: "May — Jul 2025",
+    period: "May - Jul 2025",
     points: [
       "Built the core loop of Dice Duel, a turn-based, probability-driven multiplayer game: betting mechanics, dice-roll prediction and 2×/4× multiplier payouts",
       "Implemented real-time state management across local and AI multiplayer sessions",
@@ -97,7 +97,7 @@ export const timeline: TimelineEntry[] = [
   {
     title: "Volunteer Intern",
     org: "Kind Beings NGO",
-    period: "Jan — Mar 2025",
+    period: "Jan - Mar 2025",
     points: [
       "Volunteered with a non-profit, contributing time and skills to community initiatives",
     ],
@@ -127,7 +127,7 @@ export type Project = {
 
 export const featuredProjects: Project[] = [
   {
-    label: "Final-year project · Dec 2025 — Apr 2026",
+    label: "Final-year project · Dec 2025 - Apr 2026",
     title: "Context-aware support chatbot",
     blurb:
       "A multi-turn customer-support chatbot that actually remembers the conversation. Intent recognition, entity extraction and dialogue-state tracking keep follow-up questions in context; fine-tuned Hugging Face transformer models handle the language, and a FastAPI backend serves them in real time behind a Chainlit chat UI.",
@@ -136,10 +136,10 @@ export const featuredProjects: Project[] = [
     icon: Bot,
   },
   {
-    label: "Computer vision · Dec 2024 — Jan 2025",
+    label: "Computer vision · Dec 2024 - Jan 2025",
     title: "Real-time emotion detection",
     blurb:
-      "Facial-emotion recognition on live video: OpenCV handles face detection and preprocessing, a CNN classifies the emotion. The interesting work was in the pipeline — squeezing inference latency down until predictions keep up with the camera frame rate.",
+      "Facial-emotion recognition on live video: OpenCV handles face detection and preprocessing, a CNN classifies the emotion. The interesting work was in the pipeline - squeezing inference latency down until predictions keep up with the camera frame rate.",
     tech: ["Python", "OpenCV", "CNN", "Deep learning"],
     accent: "violet",
     icon: ScanFace,
@@ -158,7 +158,7 @@ export const moreProjects: Project[] = [
   {
     title: "Food ordering app",
     blurb:
-      "Android app with user authentication, multi-order handling and cash payments — my first end-to-end mobile product.",
+      "Android app with user authentication, multi-order handling and cash payments - my first end-to-end mobile product.",
     tech: ["Kotlin", "XML", "SQL"],
     accent: "amber",
     icon: UtensilsCrossed,
@@ -166,7 +166,7 @@ export const moreProjects: Project[] = [
   {
     title: "This website",
     blurb:
-      "The site you're looking at — designed and built from scratch, deployed through a CI workflow.",
+      "The site you're looking at - designed and built from scratch, deployed through a CI workflow.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     accent: "sky",
     icon: Globe,
@@ -176,7 +176,7 @@ export const moreProjects: Project[] = [
 export const education = {
   degree: "B.Tech, Computer Science",
   school: "Amity University",
-  period: "2022 — 2026",
+  period: "2022 - 2026",
   note: "CGPA 8.16",
 };
 
@@ -184,7 +184,7 @@ export const certifications = [
   { name: "Microsoft Azure AI Fundamentals (AI-900)", year: "2025" },
   { name: "Microsoft Azure Data Fundamentals (DP-900)", year: "2025" },
   { name: "Oracle OCI Generative AI Certified Professional", year: "2024" },
-  { name: "TATA Forage — Data Visualization", year: "2025" },
+  { name: "TATA Forage - Data Visualization", year: "2025" },
   { name: "Body Language (IIT Roorkee)", year: "2024" },
-  { name: "Python for Data Science — IIT Madras", year: "2023" },
+  { name: "Python for Data Science - IIT Madras", year: "2023" },
 ];

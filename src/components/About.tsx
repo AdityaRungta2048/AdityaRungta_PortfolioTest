@@ -8,13 +8,13 @@ export default function About() {
       <div className="max-w-3xl space-y-4 leading-relaxed">
         <p>
           Hello! I'm Aditya, a computer-science student at Amity University
-          (class of 2026). The work I enjoy most happens behind the interface —
+          (class of 2026). The work I enjoy most happens behind the interface -
           data models, APIs, and the logic that has to be right.
         </p>
         <p>
           Over the last few years I've shipped an Android food-ordering app, a
           healthcare management system, a real-time emotion-recognition
-          pipeline and a context-aware support chatbot — and spent a summer at{" "}
+          pipeline and a context-aware support chatbot - and spent a summer at{" "}
           <span className="text-mint">Jabsz Gaming Studios</span> building the
           game logic and real-time state for a multiplayer betting game.
         </p>
