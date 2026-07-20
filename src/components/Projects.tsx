@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Section from "./Section";
 import GitHubActivity from "./GitHubActivity";
+import ProjectModal from "./ProjectModal";
 import { featuredProjects, moreProjects, type Accent, type Project } from "../data";
 
 const accentStyles: Record<
@@ -66,7 +67,13 @@ function useTilt<T extends HTMLElement>(max = 6) {
   return ref;
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({
+  project,
+  onOpen,
+}: {
+  project: Project;
+  onOpen: () => void;
+}) {
   const tiltRef = useTilt<HTMLElement>();
   const accent = accentStyles[project.accent];
   const Icon = project.icon;
@@ -74,7 +81,17 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <article
       ref={tiltRef}
-      className="tilt group flex w-[85vw] max-w-[380px] shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-line bg-panel/60 transition-colors hover:border-mint/40 sm:w-[360px]"
+      onClick={onOpen}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen();
+        }
+      }}
+      aria-label={`${project.title} - open case study`}
+      className="tilt group flex w-[85vw] max-w-[380px] shrink-0 cursor-pointer snap-start flex-col overflow-hidden rounded-xl border border-line bg-panel/60 transition-colors hover:border-mint/40 sm:w-[360px]"
     >
       <div
         className={`relative flex h-36 items-center justify-center overflow-hidden bg-gradient-to-br to-transparent ${accent.band}`}
@@ -109,6 +126,13 @@ function ProjectCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
+        <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs text-mint">
+          View case study
+          <ArrowUpRight
+            size={14}
+            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </span>
       </div>
     </article>
   );
@@ -116,6 +140,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const [selected, setSelected] = useState<Project | null>(null);
   const projects: Project[] = [...featuredProjects, ...moreProjects];
 
   const scroll = (dir: number) => {
@@ -151,11 +176,17 @@ export default function Projects() {
         className="carousel -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-pl-6 px-6 pb-4 sm:-mx-10 sm:scroll-pl-10 sm:px-10"
       >
         {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+          <ProjectCard
+            key={project.title}
+            project={project}
+            onOpen={() => setSelected(project)}
+          />
         ))}
       </div>
 
       <GitHubActivity />
+
+      <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </Section>
   );
 }
