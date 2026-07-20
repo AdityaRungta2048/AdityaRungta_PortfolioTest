@@ -100,7 +100,7 @@ export default function Nav() {
               rel="noreferrer"
               className="rounded border border-mint px-4 py-2 font-mono text-sm text-mint transition-colors hover:bg-mint/10"
             >
-              Résumé
+              Resume
             </a>
           </li>
         </ul>
@@ -139,7 +139,7 @@ export default function Nav() {
                 rel="noreferrer"
                 className="inline-block rounded border border-mint px-4 py-2 font-mono text-sm text-mint"
               >
-                Résumé
+                Resume
               </a>
             </li>
           </ul>

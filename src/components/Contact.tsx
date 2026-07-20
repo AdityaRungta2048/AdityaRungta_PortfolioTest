@@ -81,7 +81,7 @@ export default function Contact() {
               className="inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 font-mono text-sm text-bright transition-colors hover:border-mint/50 hover:text-mint"
             >
               <Download size={16} />
-              Download résumé
+              Download resume
             </a>
           </div>
 

@@ -162,7 +162,7 @@ export default function Hero() {
             rel="noreferrer"
             className="inline-flex items-center rounded px-6 py-3 font-mono text-sm text-fog transition-colors hover:text-mint"
           >
-            View résumé
+            View resume
           </MagneticLink>
         </motion.div>
       </motion.div>
