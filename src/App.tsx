@@ -28,9 +28,9 @@ export default function App() {
         <Sidebars />
         <main className="mx-auto max-w-5xl px-6 sm:px-10">
           <Hero />
+          <About />
           <Marquee />
           <Stats />
-          <About />
           <Experience />
           <Projects />
           <Background />
