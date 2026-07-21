@@ -350,3 +350,94 @@ export const certifications = [
   { name: "Body Language (IIT Roorkee)", year: "2024" },
   { name: "Python for Data Science - IIT Madras", year: "2023" },
 ];
+
+// Plain-text resume content used by Recruiter mode.
+export const resume = {
+  name: "Aditya Rungta",
+  title: "Backend & Applied-ML Engineer",
+  summary:
+    "Final-year B.Tech Computer Science student with a solid background in software engineering, data-driven systems and intelligent applications. Experienced building scalable solutions across AI, backend systems and full-stack development, with a focus on problem solving, system design and efficient, user-focused products. Internships, projects and open-source contributions have shown an ability to work collaboratively and ship practical, meaningful solutions.",
+  experience: [
+    {
+      org: "Jabsz Gaming Studios",
+      role: "Web Development Intern",
+      period: "May 2025 - Jul 2025",
+      points: [
+        "Developed Dice Duel, a turn-based, probability-driven mobile game using React Native, Expo and Firebase Firestore.",
+        "Built core game logic - betting mechanics, dice-roll prediction and reward calculations on a 2x/4x multiplier system.",
+        "Implemented real-time state management across local and AI multiplayer, with Firestore for persistent sessions and backend sync.",
+        "Collaborated cross-functionally to deliver a responsive UI, smooth gameplay and a scalable code architecture.",
+      ],
+    },
+  ],
+  resumeProjects: [
+    {
+      name: "Context-Aware Conversational AI for Customer Support",
+      period: "Dec 2025 - Apr 2026",
+      points: [
+        "Built a multi-turn, context-aware chatbot with intent recognition, entity extraction and dialogue-state tracking.",
+        "Fine-tuned Hugging Face transformer models on annotated datasets; served via a Flask/FastAPI backend with a Chainlit front end.",
+      ],
+    },
+    {
+      name: "AI-Based Facial & Emotion Detection System",
+      period: "Dec 2024 - Jan 2025",
+      points: [
+        "Real-time emotion recognition using face detection, preprocessing and a CNN-based deep-learning model with OpenCV.",
+        "Optimised inference and image-processing pipelines for high accuracy and low latency on live video.",
+      ],
+    },
+    {
+      name: "Healthcare Management System",
+      period: "Sep 2024 - Oct 2024",
+      points: [
+        "Built a scalable system with MySQL and Python for patient registration, appointment scheduling and doctor access.",
+        "Delivered secure, intuitive interfaces with robust data validation to streamline healthcare workflows.",
+      ],
+    },
+    {
+      name: "Food Ordering App",
+      period: "Jun 2024 - Aug 2024",
+      points: [
+        "Developed an Android app in Kotlin, XML and SQL with user authentication, multi-order handling and cash payments.",
+        "Delivered a seamless, secure experience with reliable data management across the app.",
+      ],
+    },
+  ],
+  educationList: [
+    {
+      school: "Amity University",
+      detail: "B.Tech in Computer Science - CGPA 8.16",
+      period: "2022 - 2026",
+    },
+    {
+      school: "Bharatiya Vidya Bhavan's Vidyashram",
+      detail: "CBSE Class 12 - 86.4%",
+      period: "2022",
+    },
+    {
+      school: "Bharatiya Vidya Bhavan's Vidyashram",
+      detail: "CBSE Class 10 - 89%",
+      period: "2020",
+    },
+  ],
+  skillGroups: [
+    { group: "Languages", items: ["Python", "Java", "Kotlin", "HTML", "CSS"] },
+    {
+      group: "Frameworks & Libraries",
+      items: ["Android", "React Native", "Pandas", "NumPy", "Matplotlib"],
+    },
+    {
+      group: "Tools",
+      items: ["Git", "MySQL", "Firebase", "Excel", "PowerPoint"],
+    },
+  ],
+  awards: [
+    { title: "Internship - Kind Beings (NGO)", period: "Jan - Mar 2025" },
+    {
+      title: "Contributor - GirlScript Summer of Code (GSSoC)",
+      period: "May 2024",
+    },
+    { title: "Top 5% - Python for Data Science, IIT Madras", period: "2023" },
+  ],
+};

@@ -1,46 +1,23 @@
 import { MotionConfig } from "framer-motion";
 import { ResumeProvider } from "./components/ResumeProvider";
+import { ModeProvider, useMode } from "./components/ModeProvider";
 import Preloader from "./components/Preloader";
-import Cursor from "./components/Cursor";
-import Nav from "./components/Nav";
-import ScrollProgress from "./components/ScrollProgress";
-import Spotlight from "./components/Spotlight";
-import Sidebars from "./components/Sidebars";
-import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
-import Stats from "./components/Stats";
-import About from "./components/About";
-import Experience from "./components/Experience";
-import Projects from "./components/Projects";
-import Background from "./components/Background";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import BackToTop from "./components/BackToTop";
+import Cinematic from "./components/Cinematic";
+import RecruiterMode from "./components/RecruiterMode";
+
+function ModeSwitcher() {
+  const { mode } = useMode();
+  return mode === "cinematic" ? <Cinematic /> : <RecruiterMode />;
+}
 
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <ResumeProvider>
-        <div id="top">
+        <ModeProvider>
           <Preloader />
-          <Cursor />
-          <ScrollProgress />
-          <Spotlight />
-          <Nav />
-          <Sidebars />
-          <main className="mx-auto max-w-5xl px-6 sm:px-10">
-            <Hero />
-            <About />
-            <Marquee />
-            <Stats />
-            <Experience />
-            <Projects />
-            <Background />
-            <Contact />
-          </main>
-          <Footer />
-          <BackToTop />
-        </div>
+          <ModeSwitcher />
+        </ModeProvider>
       </ResumeProvider>
     </MotionConfig>
   );
