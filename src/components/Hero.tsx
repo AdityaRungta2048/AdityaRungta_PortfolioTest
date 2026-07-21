@@ -160,7 +160,7 @@ export default function Hero() {
             onClick={openResume}
             className="magnetic inline-flex items-center rounded px-6 py-3 font-mono text-sm text-fog transition-colors hover:text-mint"
           >
-            View resume
+            Download resume
           </button>
         </motion.div>
       </motion.div>
