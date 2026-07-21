@@ -15,7 +15,7 @@ export default function ModeToggle() {
           key={option.key}
           onClick={() => requestSwitch(option.key)}
           aria-pressed={mode === option.key}
-          className={`rounded-full px-3.5 py-1.5 font-mono text-xs transition-colors ${
+          className={`rounded-full px-3 py-1 font-mono text-xs transition-colors ${
             mode === option.key
               ? "bg-mint/15 text-mint"
               : "text-fog hover:text-bright"

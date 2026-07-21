@@ -63,8 +63,8 @@ export default function RecruiterMode() {
     <div className="min-h-svh">
       <header className="sticky top-0 z-40 border-b border-line bg-ink/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-6 py-3.5">
-          <span className="font-mono text-lg font-medium text-mint">
-            ar<span className="text-bright">.</span>
+          <span className="font-mono text-sm font-medium text-mint">
+            aditya<span className="text-bright">.</span>rungta
           </span>
           <div className="flex items-center gap-3">
             <ModeToggle />

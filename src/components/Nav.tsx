@@ -45,17 +45,17 @@ export default function Nav() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="font-mono text-lg font-medium text-mint">
-          ar<span className="text-bright">.</span>
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <a href="#top" className="font-mono text-sm font-medium text-mint">
+          aditya<span className="text-bright">.</span>rungta
         </a>
 
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-5 md:flex">
           {navLinks.map((link) => (
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`font-mono text-base transition-colors ${
+                className={`font-mono text-sm transition-colors ${
                   active === link.id ? "text-mint" : "text-fog hover:text-mint"
                 }`}
               >
@@ -72,7 +72,7 @@ export default function Nav() {
           <li>
             <button
               onClick={openResume}
-              className="rounded border border-mint px-4 py-2 font-mono text-sm text-mint transition-colors hover:bg-mint/10"
+              className="rounded border border-mint px-3.5 py-1.5 font-mono text-xs text-mint transition-colors hover:bg-mint/10"
             >
               Resume
             </button>
@@ -80,7 +80,6 @@ export default function Nav() {
         </ul>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ModeToggle />
           <ThemeToggle />
           <button
             onClick={() => setOpen(!open)}
@@ -96,12 +95,15 @@ export default function Nav() {
       {open && (
         <div className="border-t border-line bg-ink/95 px-6 py-6 backdrop-blur-md md:hidden">
           <ul className="flex flex-col gap-5">
+            <li className="mb-1">
+              <ModeToggle />
+            </li>
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
                   onClick={() => setOpen(false)}
-                  className="font-mono text-base text-fog hover:text-mint"
+                  className="font-mono text-sm text-fog hover:text-mint"
                 >
                   {link.label}
                 </a>
