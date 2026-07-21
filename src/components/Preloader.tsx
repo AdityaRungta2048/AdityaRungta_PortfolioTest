@@ -26,8 +26,8 @@ export default function Preloader() {
         phase === "fade" ? "opacity-0" : "opacity-100"
       }`}
     >
-      <span className="font-mono text-4xl font-medium text-mint">
-        ar<span className="text-bright">.</span>
+      <span className="font-mono text-3xl font-medium text-mint">
+        aditya<span className="text-bright">.</span>rungta
       </span>
       <span className="h-0.5 w-44 overflow-hidden rounded-full bg-line">
         <span className="loadbar block h-full w-full origin-left bg-mint" />
