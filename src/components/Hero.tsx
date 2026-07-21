@@ -8,8 +8,7 @@ import {
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { heroRoles } from "../data";
-
-const resumeHref = `${import.meta.env.BASE_URL}resume.pdf`;
+import { useResume } from "./ResumeProvider";
 
 // Buttons gently gravitate toward the pointer while hovered.
 function MagneticLink({
@@ -86,6 +85,7 @@ function useTypewriter(phrases: string[]) {
 
 export default function Hero() {
   const reducedMotion = useReducedMotion();
+  const { open: openResume } = useResume();
   const typed = useTypewriter(heroRoles);
   const roleText = reducedMotion ? heroRoles[0] : typed;
 
@@ -156,14 +156,12 @@ export default function Hero() {
               className="transition-transform group-hover:translate-x-1"
             />
           </MagneticLink>
-          <MagneticLink
-            href={resumeHref}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center rounded px-6 py-3 font-mono text-sm text-fog transition-colors hover:text-mint"
+          <button
+            onClick={openResume}
+            className="magnetic inline-flex items-center rounded px-6 py-3 font-mono text-sm text-fog transition-colors hover:text-mint"
           >
             View resume
-          </MagneticLink>
+          </button>
         </motion.div>
       </motion.div>
 

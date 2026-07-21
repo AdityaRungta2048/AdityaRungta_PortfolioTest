@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { navLinks } from "../data";
-
-const resumeHref = `${import.meta.env.BASE_URL}resume.pdf`;
+import { useResume } from "./ResumeProvider";
 
 function ThemeToggle() {
   const [theme, setTheme] = useState(
@@ -37,6 +36,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const { open: openResume } = useResume();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -94,14 +94,12 @@ export default function Nav() {
             <ThemeToggle />
           </li>
           <li>
-            <a
-              href={resumeHref}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              onClick={openResume}
               className="rounded border border-mint px-4 py-2 font-mono text-sm text-mint transition-colors hover:bg-mint/10"
             >
               Resume
-            </a>
+            </button>
           </li>
         </ul>
 
@@ -133,14 +131,15 @@ export default function Nav() {
               </li>
             ))}
             <li>
-              <a
-                href={resumeHref}
-                target="_blank"
-                rel="noreferrer"
+              <button
+                onClick={() => {
+                  openResume();
+                  setOpen(false);
+                }}
                 className="inline-block rounded border border-mint px-4 py-2 font-mono text-sm text-mint"
               >
                 Resume
-              </a>
+              </button>
             </li>
           </ul>
         </div>
