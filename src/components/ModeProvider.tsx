@@ -52,7 +52,7 @@ export function ModeProvider({ children }: { children: ReactNode }) {
       busy.current = true;
       setOverlay(target);
 
-      // swap the underlying mode while the overlay covers the screen
+      // swap the underlying mode once the blur curtain has covered the screen
       window.setTimeout(() => {
         setMode(target);
         try {
@@ -61,13 +61,13 @@ export function ModeProvider({ children }: { children: ReactNode }) {
           /* private browsing */
         }
         window.scrollTo(0, 0);
-      }, 780);
+      }, 640);
 
-      // then reveal the new mode
+      // then lift the curtain to reveal the new mode
       window.setTimeout(() => {
         setOverlay(null);
         busy.current = false;
-      }, 1500);
+      }, 1250);
     },
     [mode],
   );
@@ -80,28 +80,28 @@ export function ModeProvider({ children }: { children: ReactNode }) {
         {overlay && (
           <motion.div
             key="mode-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[95] flex flex-col items-center justify-center bg-ink"
+            initial={{ y: "100%" }}
+            animate={{ y: "0%" }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 0.62, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 z-[95] flex flex-col items-center justify-center overflow-hidden bg-ink/80 backdrop-blur-2xl"
           >
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,rgba(45,212,191,0.12),transparent_70%)]"
             />
             <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.15, duration: 0.4 }}
               className="relative font-mono text-xs uppercase tracking-[0.5em] text-fog"
             >
               Entering
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ delay: 0.15, duration: 0.5, ease: "easeOut" }}
+              initial={{ opacity: 0, filter: "blur(10px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              transition={{ delay: 0.18, duration: 0.5, ease: "easeOut" }}
               className="relative mt-4 bg-gradient-to-r from-sky-300 via-mint to-violet-300 bg-clip-text font-display text-4xl font-bold uppercase tracking-[0.15em] text-transparent sm:text-6xl"
             >
               {labels[overlay]} Mode
@@ -110,7 +110,7 @@ export function ModeProvider({ children }: { children: ReactNode }) {
               aria-hidden
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ delay: 0.2, duration: 0.7, ease: "easeInOut" }}
+              transition={{ delay: 0.22, duration: 0.6, ease: "easeInOut" }}
               className="relative mt-5 h-px w-40 origin-center bg-gradient-to-r from-transparent via-mint to-transparent"
             />
           </motion.div>

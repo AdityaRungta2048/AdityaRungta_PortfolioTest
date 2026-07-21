@@ -125,7 +125,7 @@ export default function RecruiterMode() {
             onClick={openResume}
             className="text-mint transition-colors hover:underline"
           >
-            View Resume (PDF)
+            Download Resume (PDF)
           </button>
         </motion.div>
 

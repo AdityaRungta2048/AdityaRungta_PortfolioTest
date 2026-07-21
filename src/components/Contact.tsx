@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Check, Copy, Eye } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Download } from "lucide-react";
 import { email, githubUrl, linkedinUrl } from "../data";
 import { useResume } from "./ResumeProvider";
 
@@ -78,8 +78,8 @@ export default function Contact() {
               onClick={openResume}
               className="inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 font-mono text-sm text-bright transition-colors hover:border-mint/50 hover:text-mint"
             >
-              <Eye size={16} />
-              View resume
+              <Download size={16} />
+              Download resume
             </button>
           </div>
 
