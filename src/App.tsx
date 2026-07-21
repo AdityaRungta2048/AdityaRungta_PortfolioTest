@@ -1,4 +1,5 @@
 import { MotionConfig } from "framer-motion";
+import { ResumeProvider } from "./components/ResumeProvider";
 import Preloader from "./components/Preloader";
 import Cursor from "./components/Cursor";
 import Nav from "./components/Nav";
@@ -19,26 +20,28 @@ import BackToTop from "./components/BackToTop";
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <div id="top">
-        <Preloader />
-        <Cursor />
-        <ScrollProgress />
-        <Spotlight />
-        <Nav />
-        <Sidebars />
-        <main className="mx-auto max-w-5xl px-6 sm:px-10">
-          <Hero />
-          <About />
-          <Marquee />
-          <Stats />
-          <Experience />
-          <Projects />
-          <Background />
-          <Contact />
-        </main>
-        <Footer />
-        <BackToTop />
-      </div>
+      <ResumeProvider>
+        <div id="top">
+          <Preloader />
+          <Cursor />
+          <ScrollProgress />
+          <Spotlight />
+          <Nav />
+          <Sidebars />
+          <main className="mx-auto max-w-5xl px-6 sm:px-10">
+            <Hero />
+            <About />
+            <Marquee />
+            <Stats />
+            <Experience />
+            <Projects />
+            <Background />
+            <Contact />
+          </main>
+          <Footer />
+          <BackToTop />
+        </div>
+      </ResumeProvider>
     </MotionConfig>
   );
 }

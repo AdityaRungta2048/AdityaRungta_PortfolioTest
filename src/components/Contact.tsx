@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Check, Copy, Download } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Eye } from "lucide-react";
 import { email, githubUrl, linkedinUrl } from "../data";
-
-const resumeHref = `${import.meta.env.BASE_URL}resume.pdf`;
+import { useResume } from "./ResumeProvider";
 
 function SignalPulse() {
   return (
@@ -23,6 +22,7 @@ function SignalPulse() {
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const { open: openResume } = useResume();
 
   const copyEmail = async () => {
     try {
@@ -74,15 +74,13 @@ export default function Contact() {
             >
               {email}
             </a>
-            <a
-              href={resumeHref}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              onClick={openResume}
               className="inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 font-mono text-sm text-bright transition-colors hover:border-mint/50 hover:text-mint"
             >
-              <Download size={16} />
-              Download resume
-            </a>
+              <Eye size={16} />
+              View resume
+            </button>
           </div>
 
           <button
