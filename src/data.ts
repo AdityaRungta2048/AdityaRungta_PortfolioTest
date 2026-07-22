@@ -141,7 +141,7 @@ export type Project = {
 
 export const featuredProjects: Project[] = [
   {
-    label: "Final-year project · Dec 2025 - Apr 2026",
+    label: "Capstone project · Dec 2025 - Apr 2026",
     title: "Context-aware support chatbot",
     blurb:
       "A multi-turn customer-support chatbot that actually remembers the conversation. Intent recognition, entity extraction and dialogue-state tracking keep follow-up questions in context; fine-tuned Hugging Face transformer models handle the language, and a FastAPI backend serves them in real time behind a Chainlit chat UI.",
@@ -356,7 +356,7 @@ export const resume = {
   name: "Aditya Rungta",
   title: "Backend & Applied-ML Engineer",
   summary:
-    "Final-year B.Tech Computer Science student with a solid background in software engineering, data-driven systems and intelligent applications. Experienced building scalable solutions across AI, backend systems and full-stack development, with a focus on problem solving, system design and efficient, user-focused products. Internships, projects and open-source contributions have shown an ability to work collaboratively and ship practical, meaningful solutions.",
+    "B.Tech Computer Science graduate (fresher) with a solid background in software engineering, data-driven systems and intelligent applications. Experienced building scalable solutions across AI, backend systems and full-stack development, with a focus on problem solving, system design and efficient, user-focused products. An internship, projects and open-source contributions have shown an ability to work collaboratively and ship practical, meaningful solutions.",
   experience: [
     {
       org: "Jabsz Gaming Studios",

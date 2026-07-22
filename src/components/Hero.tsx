@@ -90,11 +90,11 @@ export default function Hero() {
           variants={item}
           className="mt-6 max-w-2xl text-lg leading-relaxed text-fog"
         >
-          Final-year CS engineer across{" "}
+          A CS fresher with hands-on projects across{" "}
           <span className="text-bright">backend systems</span>,{" "}
           <span className="text-bright">applied AI / ML</span>,{" "}
           <span className="text-bright">full-stack development</span> and{" "}
-          <span className="text-bright">real-time systems</span> — with hands-on
+          <span className="text-bright">real-time systems</span> — plus
           experience at Jabsz Gaming Studios and GirlScript Summer of Code.
         </motion.p>
 
