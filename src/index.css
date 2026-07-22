@@ -4,30 +4,32 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --color-ink: #0b0e14;
-  --color-panel: #10141d;
-  --color-line: #1d2431;
-  --color-fog: #94a0b4;
-  --color-bright: #e8ecf4;
-  --color-mint: #2dd4bf;
+  /* mint = accent token name, now holds the blue accent */
+  --color-ink: #0f1115;
+  --color-panel: #171a21;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-fog: #9ca3af;
+  --color-bright: #f3f4f6;
+  --color-mint: #4f8cff;
+  --color-success: #22c55e;
 }
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
   color-scheme: dark;
-  --spotlight-glow: rgba(45, 212, 191, 0.055);
+  --spotlight-glow: rgba(79, 140, 255, 0.06);
 }
 
 [data-theme="light"] {
   color-scheme: light;
   --color-ink: #f5f6f8;
   --color-panel: #ffffff;
-  --color-line: #e2e6ed;
+  --color-line: rgba(15, 17, 21, 0.1);
   --color-fog: #47536b;
   --color-bright: #0e1526;
-  --color-mint: #0c8f80;
-  --spotlight-glow: rgba(12, 143, 128, 0.07);
+  --color-mint: #2563eb;
+  --spotlight-glow: rgba(37, 99, 235, 0.06);
 }
 
 html {

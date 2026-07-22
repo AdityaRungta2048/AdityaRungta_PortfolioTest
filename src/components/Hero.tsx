@@ -150,8 +150,8 @@ export default function Hero() {
           className="mt-6 flex items-center gap-2.5 font-mono text-xs text-fog"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-mint" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
           </span>
           Open to AI + full-stack roles · class of 2026
         </motion.div>

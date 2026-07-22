@@ -15,7 +15,7 @@ function SignalPulse() {
       <span className="absolute h-28 w-28 rounded-full border border-line sm:h-32 sm:w-32" />
       <span className="absolute h-20 w-20 rounded-full border border-line/60" />
       {/* glowing core */}
-      <span className="relative h-4 w-4 rounded-full bg-mint shadow-[0_0_18px_2px_rgba(45,212,191,0.5)]" />
+      <span className="relative h-4 w-4 rounded-full bg-mint shadow-[0_0_18px_2px_rgba(79,140,255,0.5)]" />
     </div>
   );
 }
@@ -45,7 +45,7 @@ export default function Contact() {
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.12),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(79,140,255,0.12),transparent_60%)]"
         />
         <div
           aria-hidden
