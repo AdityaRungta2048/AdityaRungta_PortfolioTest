@@ -25,7 +25,7 @@ export default function Background() {
             </div>
             <p className="border-t border-line pt-5 text-base leading-relaxed md:border-l md:border-t-0 md:pl-6 md:pt-0">
               Ranked in the top 5% of IIT Madras' Python for Data Science
-              course, and an active contributor to open source through
+              course, was an active contributor to open source through
               GirlScript Summer of Code.
             </p>
           </div>
@@ -38,11 +38,11 @@ export default function Background() {
               Certifications
             </h3>
           </div>
-          <ul className="mt-6 grid gap-x-12 gap-y-4 md:grid-cols-2">
+          <ul className="mt-6 space-y-3.5">
             {certifications.map((cert) => (
               <li
                 key={cert.name}
-                className="flex items-baseline justify-between gap-4 border-b border-line/60 pb-3 text-base"
+                className="flex items-baseline justify-between gap-4 border-b border-line/60 pb-3 text-base last:border-b-0 last:pb-0"
               >
                 <span className="leading-snug">{cert.name}</span>
                 <span className="shrink-0 font-mono text-sm text-mint">
