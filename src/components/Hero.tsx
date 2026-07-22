@@ -130,8 +130,8 @@ export default function Hero() {
           <span className="text-bright">mobile apps</span> and{" "}
           <span className="text-bright">applied machine learning</span>. Most
           recently: real-time multiplayer game systems at Jabsz Gaming Studios,
-          and a context-aware customer-support chatbot as my final-year
-          project.
+          and a context-aware customer-support chatbot that actually remembers
+          the conversation.
         </motion.p>
 
         <motion.div
@@ -142,7 +142,7 @@ export default function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-mint" />
           </span>
-          Open to backend &amp; full-stack roles · class of 2026
+          Open to AI + full-stack roles · class of 2026
         </motion.div>
 
         <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
