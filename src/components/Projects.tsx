@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Section from "./Section";
-import GitHubActivity from "./GitHubActivity";
 import ProjectModal from "./ProjectModal";
 import { featuredProjects, moreProjects, type Accent, type Project } from "../data";
 
@@ -188,8 +187,6 @@ export default function Projects() {
           />
         ))}
       </div>
-
-      <GitHubActivity />
 
       <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </Section>
