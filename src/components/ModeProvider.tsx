@@ -88,7 +88,7 @@ export function ModeProvider({ children }: { children: ReactNode }) {
           >
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,rgba(45,212,191,0.12),transparent_70%)]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,rgba(79,140,255,0.12),transparent_70%)]"
             />
             <motion.p
               initial={{ opacity: 0 }}
