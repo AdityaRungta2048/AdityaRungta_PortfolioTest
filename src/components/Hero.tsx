@@ -1,13 +1,11 @@
 import {
   useEffect,
   useRef,
-  useState,
   type AnchorHTMLAttributes,
   type ReactNode,
 } from "react";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { heroRoles } from "../data";
 import { useResume } from "./ResumeProvider";
 
 // Buttons gently gravitate toward the pointer while hovered.
@@ -56,38 +54,8 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
 };
 
-function useTypewriter(phrases: string[]) {
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const current = phrases[index % phrases.length];
-    let timeout: number | undefined;
-
-    if (!deleting && text === current) {
-      timeout = window.setTimeout(() => setDeleting(true), 1700);
-    } else if (deleting && text === "") {
-      setDeleting(false);
-      setIndex((i) => (i + 1) % phrases.length);
-    } else {
-      timeout = window.setTimeout(
-        () => setText(current.slice(0, text.length + (deleting ? -1 : 1))),
-        deleting ? 35 : 70,
-      );
-    }
-
-    return () => clearTimeout(timeout);
-  }, [text, deleting, index, phrases]);
-
-  return text;
-}
-
 export default function Hero() {
-  const reducedMotion = useReducedMotion();
   const { open: openResume } = useResume();
-  const typed = useTypewriter(heroRoles);
-  const roleText = reducedMotion ? heroRoles[0] : typed;
 
   return (
     <section className="relative flex min-h-[88svh] flex-col justify-center pb-10 pt-24">
@@ -111,27 +79,23 @@ export default function Hero() {
 
         <motion.h2
           variants={item}
-          className="mt-3 font-display text-4xl font-bold tracking-tight text-fog sm:text-5xl lg:text-6xl"
+          className="mt-4 max-w-3xl font-display text-2xl font-bold leading-snug tracking-tight text-bright sm:text-3xl lg:text-4xl"
         >
-          I build{" "}
-          <span className="text-mint">
-            {roleText}
-            {!reducedMotion && (
-              <span aria-hidden className="caret font-normal">
-                |
-              </span>
-            )}
-          </span>
+          I build context-aware AI assistants, real-time multiplayer game
+          systems, computer-vision pipelines, backend services, and mobile apps
+          that <span className="text-mint">turn data into action</span>.
         </motion.h2>
 
-        <motion.p variants={item} className="mt-6 max-w-2xl text-lg leading-relaxed">
-          I'm a final-year computer-science student at Amity University working
-          across <span className="text-bright">backend systems</span>,{" "}
-          <span className="text-bright">mobile apps</span> and{" "}
-          <span className="text-bright">applied machine learning</span>. Most
-          recently: real-time multiplayer game systems at Jabsz Gaming Studios,
-          and a context-aware customer-support chatbot that actually remembers
-          the conversation.
+        <motion.p
+          variants={item}
+          className="mt-6 max-w-2xl text-lg leading-relaxed text-fog"
+        >
+          Final-year CS engineer across{" "}
+          <span className="text-bright">backend systems</span>,{" "}
+          <span className="text-bright">applied AI / ML</span>,{" "}
+          <span className="text-bright">full-stack development</span> and{" "}
+          <span className="text-bright">real-time systems</span> — with hands-on
+          experience at Jabsz Gaming Studios and GirlScript Summer of Code.
         </motion.p>
 
         <motion.div
